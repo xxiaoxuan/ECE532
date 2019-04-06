@@ -1,0 +1,59 @@
+#-----------------------------------------------------------
+# Vivado v2018.1 (64-bit)
+# SW Build 2188600 on Wed Apr  4 18:40:38 MDT 2018
+# IP Build 2185939 on Wed Apr  4 20:55:05 MDT 2018
+# Start of session at: Tue Feb 26 16:58:48 2019
+# Process ID: 7712
+# Current directory: D:/yuxiaoxu/pmod_camerat/532_pmod_camera_dist/src/managed_ip_project
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent12948 D:\yuxiaoxu\pmod_camerat\532_pmod_camera_dist\src\managed_ip_project\managed_ip_project.xpr
+# Log file: D:/yuxiaoxu/pmod_camerat/532_pmod_camera_dist/src/managed_ip_project/vivado.log
+# Journal file: D:/yuxiaoxu/pmod_camerat/532_pmod_camera_dist/src/managed_ip_project\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/yuxiaoxu/pmod_camerat/532_pmod_camera_dist/src/managed_ip_project/managed_ip_project.xpr
+ipx::infer_core -vendor xilinx.com -library user -taxonomy /UserIP D:/yuxiaoxu/pmod_camerat/532_pmod_camera_dist/src
+ipx::edit_ip_in_project -upgrade true -name pmod_camera_ip -directory D:/yuxiaoxu/pmod_camerat/532_pmod_camera_dist/src/managed_ip_project/managed_ip_project.tmp d:/yuxiaoxu/pmod_camerat/532_pmod_camera_dist/src/component.xml
+ipx::current_core d:/yuxiaoxu/pmod_camerat/532_pmod_camera_dist/src/component.xml
+update_compile_order -fileset sources_1
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top ov7670_top [current_fileset]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sources_1
+ipx::merge_project_changes files [ipx::current_core]
+ipx::merge_project_changes hdl_parameters [ipx::current_core]
+update_compile_order -fileset sources_1
+ipx::merge_project_changes files [ipx::current_core]
+ipx::add_address_space reset [ipx::current_core]
+set_property master_address_space_ref reset [ipx::get_bus_interfaces reset -of_objects [ipx::current_core]]
+export_ip_user_files -of_objects  [get_files d:/yuxiaoxu/pmod_camerat/532_pmod_camera_dist/src/nexys4_ov7670.xdc] -no_script -reset -force -quiet
+remove_files  -fileset constrs_1 d:/yuxiaoxu/pmod_camerat/532_pmod_camera_dist/src/nexys4_ov7670.xdc
+ipx::merge_project_changes files [ipx::current_core]
+set_property core_revision 2 [ipx::current_core]
+ipx::update_source_project_archive -component [ipx::current_core]
+ipx::create_xgui_files [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::save_core [ipx::current_core]
+ipx::move_temp_component_back -component [ipx::current_core]
+close_project -delete
+set_property  ip_repo_paths  d:/yuxiaoxu/pmod_camerat/532_pmod_camera_dist/src [current_project]
+update_ip_catalog
+ipx::edit_ip_in_project -upgrade true -name vga444_v1_0_project -directory D:/yuxiaoxu/pmod_camerat/532_pmod_camera_dist/src/managed_ip_project/managed_ip_project.tmp/vga444_v1_0_project d:/yuxiaoxu/pmod_camerat/532_pmod_camera_dist/src/component.xml
+update_compile_order -fileset sources_1
+ipx::remove_all_port [ipx::current_core]
+ipx::add_ports_from_hdl [ipx::current_core] -top_level_hdl_file d:/yuxiaoxu/pmod_camerat/532_pmod_camera_dist/src/ov7670_top.v -top_module_name ov7670_top
+ipx::remove_all_port [ipx::current_core]
+ipx::add_ports_from_hdl [ipx::current_core] -top_level_hdl_file d:/yuxiaoxu/pmod_camerat/532_pmod_camera_dist/src/ov7670_top.v -top_module_name ov7670_top
+ipx::remove_address_space reset [ipx::current_core]
+ipx::add_port_map RST [ipx::get_bus_interfaces reset -of_objects [ipx::current_core]]
+set_property physical_name reset [ipx::get_port_maps RST -of_objects [ipx::get_bus_interfaces reset -of_objects [ipx::current_core]]]
+ipx::remove_bus_interface reset [ipx::current_core]
+set_property previous_version_for_upgrade xilinx.com:user:vga444:1.0 [ipx::current_core]
+set_property core_revision 1 [ipx::current_core]
+ipx::create_xgui_files [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::save_core [ipx::current_core]
+ipx::move_temp_component_back -component [ipx::current_core]
+close_project -delete
+update_ip_catalog -rebuild -repo_path d:/yuxiaoxu/pmod_camerat/532_pmod_camera_dist/src
